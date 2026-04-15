@@ -12,7 +12,7 @@ let imagesLoaded = 0;
 playerImg.onload = checkLoaded;
 enemyImg.onload = checkLoaded;
 
-playerImg.src = "player.png";
+playerImg.src = "Player.png";
 enemyImg.src = "enemy.png";
 
 function checkLoaded() {
