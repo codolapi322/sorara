@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  text-align: center;
+  background: rgb(147, 240, 147);
+  font-family: sans-serif;
+}
+
+#controls {
+  margin: 10px;
+}
+
+canvas {
+  background: rgb(147, 240, 147);
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #333;
+}
