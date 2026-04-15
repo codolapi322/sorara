@@ -5,9 +5,23 @@ const resetBtn = document.getElementById("resetBtn");
 const scoreDisplay = document.getElementById("score");
 
 let playerImg = new Image();
-playerImg.src = "player.png"; // ← 好きなキャラ画像を同じフォルダに入れてね
 let enemyImg = new Image();
-enemyImg.src = "enemy.png"; // ← 敵画像も同様に
+
+let imagesLoaded = 0;
+
+playerImg.onload = checkLoaded;
+enemyImg.onload = checkLoaded;
+
+playerImg.src = "player.png";
+enemyImg.src = "enemy.png";
+
+function checkLoaded() {
+  imagesLoaded++;
+  if (imagesLoaded === 2) {
+    console.log("画像読み込み完了！");
+  }
+}
+
 
 let player = { x: 200, y: 550, w: 40, h: 40, speed: 5 };
 let enemy = { x: Math.random() * 360, y: -40, w: 40, h: 40, speed: 3 };
@@ -63,6 +77,11 @@ function loop() {
 }
 
 startBtn.onclick = () => {
+  if (imagesLoaded < 2) {
+    alert("画像を読み込み中です。少し待ってからスタートしてください。");
+    return;
+  }
+
   if (!gameRunning) {
     gameRunning = true;
     gameOver = false;
@@ -73,6 +92,7 @@ startBtn.onclick = () => {
     loop();
   }
 };
+
 
 resetBtn.onclick = () => {
   gameRunning = false;
